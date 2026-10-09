@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Colors - Forest Academy Theme */
+  --color-forest-dark: #1F3624;
+  --color-forest-primary: #2A4D33;
+  --color-forest-light: #527A5B;
+  --color-leaf-accent: #8DA98B;
+
+  --color-bg-base: #FDFBF7;
+  /* Soft beige/fog */
+  --color-bg-surface: #FFFFFF;
+  --color-bg-elevated: #F5F7F4;
+
+  --color-text-primary: #1C2B20;
+  --color-text-secondary: #4A5B4E;
+  --color-text-muted: #819183;
+
+  --color-accent-gold: #D4AF37;
+  --color-accent-rust: #A34A28;
+  --color-success: #3A7A4A;
+  --color-error: #B74136;
+
+  /* Premium Blue Accent System */
+  --color-primary-blue: #2563EB;
+  /* Elegant sapphire/slate blue */
+  --color-primary-blue-dark: #1D4ED8;
+  --color-primary-blue-light: #60A5FA;
+  --color-blue-glow: rgba(37, 99, 235, 0.4);
+  /* Typography */
+  --font-ui: 'Inter', sans-serif;
+  --font-reading: 'Lora', serif;
+
+  /* Spacing & Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 24px;
+  --spacing-6: 32px;
+  --spacing-8: 48px;
+  --spacing-12: 72px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(31, 54, 36, 0.05);
+  --shadow-md: 0 4px 12px rgba(31, 54, 36, 0.08);
+  --shadow-lg: 0 12px 24px rgba(31, 54, 36, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-ui);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  background-image: radial-gradient(circle at 50% 0%, var(--color-bg-elevated) 0%, transparent 70%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  color: var(--color-forest-dark);
+}
+
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Base Reading Typography class */
+.reading-text {
+  font-family: var(--font-reading);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-text-primary);
+}
+
+/* Button Variants */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background-color: var(--color-primary-blue);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-blue-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--color-bg-surface);
+  color: var(--color-primary-blue);
+  border: 2px solid var(--color-primary-blue);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-bg-elevated);
+}
+
+.btn-ghost {
+  color: var(--color-text-secondary);
+}
+
+.btn-ghost:hover {
+  background-color: var(--color-bg-elevated);
+  color: var(--color-forest-dark);
+}
+
+/* Layout utilities */
+.container {
+  width: 100%;
+  max-width: 768px;
+  /* Tablet-focused max-width for reading */
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+}
+
+.card {
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(42, 77, 51, 0.05);
+  /* very subtle forest tint border */
+}
+
+/* Minimal Leaf Animation Layer */
+.leaf-particle {
+  position: absolute;
+  pointer-events: none;
+  background-color: var(--color-leaf-accent);
+  opacity: 0.15;
+  border-radius: 50% 0 50% 0;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}

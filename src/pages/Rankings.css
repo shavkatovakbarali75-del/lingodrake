@@ -1,0 +1,153 @@
+.rankings-container {
+    padding-top: var(--spacing-5);
+    padding-bottom: var(--spacing-8);
+}
+
+.rankings-header {
+    text-align: center;
+    margin-bottom: var(--spacing-6);
+}
+
+.rankings-title {
+    font-family: var(--font-reading);
+    font-size: 2rem;
+    color: var(--color-forest-dark);
+}
+
+.rankings-subtitle {
+    color: var(--color-text-secondary);
+}
+
+.season-info {
+    text-align: center;
+    margin-bottom: var(--spacing-6);
+    background-color: var(--color-primary-blue);
+    color: white;
+}
+
+.season-info h3 {
+    color: white;
+    margin-bottom: var(--spacing-1);
+}
+
+.season-ends {
+    font-size: 0.875rem;
+    color: var(--color-leaf-accent);
+}
+
+.podium-section {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-8);
+    height: 180px;
+}
+
+.podium-spot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;
+    background-color: var(--color-bg-surface);
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+    padding-top: var(--spacing-3);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.podium-spot.gold {
+    height: 160px;
+    z-index: 2;
+    border-top: 3px solid var(--color-accent-gold);
+}
+
+.podium-spot.silver {
+    height: 130px;
+    border-top: 3px solid #C0C0C0;
+}
+
+.podium-spot.bronze {
+    height: 110px;
+    border-top: 3px solid #CD7F32;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-bg-elevated);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-top: var(--spacing-2);
+    margin-bottom: var(--spacing-2);
+    color: var(--color-forest-dark);
+    border: 2px solid white;
+    box-shadow: var(--shadow-sm);
+}
+
+.podium-spot .name {
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.podium-spot .score {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3);
+}
+
+.leaderboard-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--radius-sm);
+}
+
+.leaderboard-row.current-user {
+    background-color: rgba(42, 77, 51, 0.05);
+    /* subtle forest tint */
+    border: 1px solid var(--color-leaf-accent);
+}
+
+.leaderboard-row .rank {
+    font-weight: 700;
+    color: var(--color-text-muted);
+    width: 24px;
+}
+
+.current-user .rank {
+    color: var(--color-primary-blue);
+}
+
+.avatar-sm {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--color-bg-elevated);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--color-forest-dark);
+}
+
+.leaderboard-row .name {
+    flex: 1;
+    font-weight: 600;
+}
+
+.leaderboard-row .score {
+    font-weight: 700;
+    color: var(--color-primary-blue);
+}

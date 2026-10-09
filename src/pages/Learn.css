@@ -1,0 +1,432 @@
+/* Premium Background Gradient */
+.premium-bg {
+    background: linear-gradient(to bottom,
+            #0F1F15 0%,
+            /* Very Dark Forest Green */
+            #133120 40%,
+            /* Deep Green */
+            #0E4D54 100%);
+    /* Deep Teal Blue */
+    color: var(--color-bg-surface);
+}
+
+.learn-container {
+    padding-top: var(--spacing-8);
+    padding-bottom: 120px;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* --- Parallax Depth Layers --- */
+.parallax-layer {
+    position: fixed;
+    /* Fixed to viewport, transformed by JS */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    backface-visibility: hidden;
+    will-change: transform;
+    /* Optimize performance */
+}
+
+/* Abstract tree silhouettes using radial gradients as a pattern */
+.layer-back-trees {
+    background-image:
+        radial-gradient(ellipse at bottom, rgba(31, 54, 36, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom left, rgba(42, 77, 51, 0.2) 0%, transparent 50%);
+    background-size: 100% 400px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    height: 120vh;
+    /* Extra height for scrolling */
+}
+
+.layer-mid-mist {
+    background:
+        linear-gradient(to top, rgba(232, 237, 233, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+    height: 150vh;
+    filter: blur(10px);
+}
+
+.layer-sunbeams {
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.03) 20%,
+            rgba(255, 255, 255, 0.08) 50%,
+            rgba(255, 255, 255, 0.02) 80%,
+            transparent 100%);
+    width: 200%;
+    height: 150vh;
+    left: -50%;
+    transform-origin: top left;
+}
+
+.layer-blue-mist {
+    background: radial-gradient(ellipse at 80% 60%, var(--color-blue-glow) 0%, transparent 60%);
+    height: 150vh;
+    mix-blend-mode: screen;
+    opacity: 0.6;
+}
+
+/* --- Enhanced Typography --- */
+.learn-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 10;
+    padding: 0 var(--spacing-4);
+}
+
+.learn-title {
+    font-family: var(--font-reading);
+    font-size: 2.75rem;
+    font-weight: 500;
+    /* Elegant serif weight */
+    color: #ffffff;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.02em;
+    margin-bottom: var(--spacing-2);
+}
+
+.learn-subtitle {
+    font-family: var(--font-ui);
+    color: var(--color-leaf-accent);
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    /* Increased tracking */
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* --- Vertical Journey Path --- */
+.journey-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 var(--spacing-4);
+}
+
+.path-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+}
+
+.path-node-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 160px;
+    /* Increased height for spacing */
+}
+
+/* S-Curve Offsets */
+.path-node-wrapper:nth-child(even) .premium-node {
+    transform: translateX(50px);
+}
+
+.path-node-wrapper:nth-child(odd) .premium-node {
+    transform: translateX(-50px);
+}
+
+.path-node-wrapper:nth-child(even) .node-label-container {
+    transform: translateX(50px);
+}
+
+.path-node-wrapper:nth-child(odd) .node-label-container {
+    transform: translateX(-50px);
+}
+
+/* --- Thicker SVG Connection Lines --- */
+.path-line-svg {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 140px;
+    overflow: visible;
+    z-index: 1;
+}
+
+.path-node-wrapper:nth-child(even) .path-line-svg {
+    transform: translateX(-50%) scaleX(-1);
+}
+
+.path-line-draw {
+    fill: none;
+    stroke-width: 6;
+    /* Clean smooth thickness */
+    stroke-linecap: round;
+}
+
+.active-line {
+    filter: drop-shadow(0 0 6px var(--color-blue-glow));
+}
+
+.locked-line {
+    stroke: rgba(255, 255, 255, 0.15);
+    /* Fallback mist line */
+}
+
+/* --- Premium Interactive Nodes --- */
+.premium-node {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s;
+    cursor: pointer;
+    background-color: var(--color-primary-blue);
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), inset 0 -4px 8px rgba(0, 0, 0, 0.2);
+    /* Enhanced shadow */
+    overflow: hidden;
+}
+
+.node-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.15"/%3E%3C/svg%3E');
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+}
+
+.node-content {
+    position: relative;
+    z-index: 5;
+}
+
+/* --- Node States --- */
+
+/* Completed: Soft green glow */
+.path-node-wrapper.completed .premium-node {
+    background-color: #3d6a49;
+    /* Slightly brighter green */
+}
+
+.node-glow-completed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 5px rgba(141, 169, 139, 0.4);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Current: Pulsing ring and scale in Premium Blue */
+.path-node-wrapper.current .premium-node {
+    background-color: var(--color-bg-surface);
+    color: var(--color-primary-blue);
+    transform: scale(1.2) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 15px var(--color-blue-glow);
+}
+
+/* Re-apply offset for scale */
+.path-node-wrapper.current:nth-child(even) .premium-node {
+    transform: translateX(50px) scale(1.2) !important;
+}
+
+.path-node-wrapper.current:nth-child(odd) .premium-node {
+    transform: translateX(-50px) scale(1.2) !important;
+}
+
+/* The animated ring outside the current node */
+.node-ring-animated {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary-blue-light);
+    animation: ringPulse 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes ringPulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 1;
+        border-width: 3px;
+    }
+
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+        border-width: 0px;
+    }
+}
+
+.current-sparkle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--color-accent-gold);
+    z-index: 6;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Locked: Faded & clean */
+.path-node-wrapper.locked .premium-node {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.4);
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.path-node-wrapper.locked .node-texture {
+    opacity: 0.02;
+}
+
+
+/* --- Clean Typography Labels --- */
+.node-label-container {
+    margin-top: 16px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    max-width: 180px;
+}
+
+.node-title {
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.3;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.01em;
+}
+
+.node-stage-num {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    color: var(--color-leaf-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    display: block;
+    margin-top: 4px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.path-node-wrapper.current .node-title {
+    color: var(--color-primary-blue-light);
+}
+
+.blurred-label .node-title {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.blurred-label .node-stage-num {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- Elevated Preview Levels --- */
+.preview-levels {
+    margin-top: 80px;
+    padding: var(--spacing-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+    position: relative;
+    z-index: 20;
+}
+
+.level-preview-card {
+    position: relative;
+    background: rgba(15, 31, 21, 0.3);
+    /* Dark transparent base */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Sophisticated glass border */
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-8) var(--spacing-6);
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    color: var(--color-bg-surface);
+    transition: transform 0.3s ease;
+}
+
+.level-preview-card:hover {
+    transform: translateY(-2px);
+}
+
+.lock-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.08);
+    /* Very subtle lock */
+}
+
+.level-preview-card h2 {
+    font-family: var(--font-reading);
+    font-size: 1.75rem;
+    color: #FFFFFF;
+    position: relative;
+    z-index: 2;
+    margin-bottom: var(--spacing-2);
+    letter-spacing: 0.02em;
+}
+
+.level-preview-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Utilities */
+.opacity-60 {
+    opacity: 0.6;
+}
+
+.opacity-50 {
+    opacity: 0.5;
+}

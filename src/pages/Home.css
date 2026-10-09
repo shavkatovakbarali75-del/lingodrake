@@ -1,0 +1,170 @@
+.home-container {
+    padding-top: var(--spacing-5);
+    padding-bottom: var(--spacing-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.home-greeting {
+    font-size: 1.5rem;
+    color: var(--color-forest-dark);
+    margin-bottom: var(--spacing-1);
+}
+
+.home-date {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+.streak-badge-pill {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    background-color: rgba(212, 175, 55, 0.1);
+    color: var(--color-accent-gold);
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+/* Resume Card */
+.resume-card {
+    background: linear-gradient(135deg, var(--color-bg-surface) 0%, var(--color-bg-elevated) 100%);
+    border: 1px solid rgba(42, 77, 51, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5);
+    position: relative;
+    overflow: hidden;
+}
+
+.resume-card::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(141, 169, 139, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.level-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-forest-light);
+    margin-bottom: var(--spacing-2);
+    display: block;
+}
+
+.stage-title {
+    font-family: var(--font-reading);
+    font-size: 1.75rem;
+    color: var(--color-forest-dark);
+    margin-bottom: var(--spacing-4);
+    line-height: 1.2;
+}
+
+.progress-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary-blue), var(--color-primary-blue-light));
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 8px var(--color-blue-glow);
+}
+
+.btn-resume {
+    width: 100%;
+    font-size: 1.125rem;
+    padding: var(--spacing-4);
+}
+
+/* Mission Section */
+.mission-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4);
+}
+
+.mission-icon {
+    background-color: var(--color-bg-base);
+    padding: var(--spacing-3);
+    border-radius: var(--radius-md);
+}
+
+.mission-info {
+    flex: 1;
+}
+
+/* Note: .progress-bar and .progress-fill are now shared utilities in Home.css, removing duplicate definitions here to standardise */
+
+.mission-info h4 {
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-2);
+}
+
+.mission-reward {
+    font-weight: 700;
+    color: var(--color-accent-gold);
+    font-size: 0.875rem;
+}
+
+/* Stats */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4);
+}
+
+.mini-stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-4);
+}
+
+.mini-stat-card .stat-icon {
+    color: var(--color-forest-light);
+    margin-bottom: var(--spacing-3);
+}
+
+.mini-stat-card .stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-forest-dark);
+    margin-bottom: var(--spacing-1);
+}
+
+.mini-stat-card .stat-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.mb-1 {
+    margin-bottom: var(--spacing-1);
+}
